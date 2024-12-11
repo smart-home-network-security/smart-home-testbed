@@ -5,5 +5,9 @@
 # Cache folders
 __pycache__
 
+# Build folders
+dist
+*.egg-info
+
 # Local test files
 test.py
