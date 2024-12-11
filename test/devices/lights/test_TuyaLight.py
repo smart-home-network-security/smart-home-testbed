@@ -1,11 +1,13 @@
+import os
 from smart_home_testbed import init_device, TuyaLight
 
 
 ### VARIABLES ###
 
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ipv4 = "192.168.1.2"
 android_package = "com.tuya.smart"
-path_screenshot_off = "sample.png"
+path_screenshot_off = os.path.join(parent_dir, "sample.png")
 
 
 ### TEST FUNCTIONS ###

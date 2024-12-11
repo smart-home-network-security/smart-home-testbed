@@ -1,11 +1,13 @@
+import os
 from smart_home_testbed import init_device, TapoCamera
 
 
 ### VARIABLES ###
 
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ipv4 = "192.168.1.2"
 android_package = "com.tplink.iot"
-path_screenshot_stream = "sample.png"
+path_screenshot_stream = os.path.join(parent_dir, "sample.png")
 
 
 ### TEST FUNCTIONS ###
