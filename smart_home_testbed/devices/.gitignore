@@ -1,0 +1,8 @@
+# All experimental output and results
+*.png
+*.nft
+*.c
+*.txt
+*.pcap
+*.csv
+*.json

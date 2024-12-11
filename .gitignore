@@ -1,2 +1,9 @@
 # Config folders
 .venv
+.vscode
+
+# Cache folders
+__pycache__
+
+# Local test files
+test.py
