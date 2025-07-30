@@ -8,5 +8,5 @@ class TapoPlugControl(TapoControl, PlugControl):
     """
 
     # Toggle coordinates
-    x = 612
-    y = 619.2
+    x = 940
+    y = 824

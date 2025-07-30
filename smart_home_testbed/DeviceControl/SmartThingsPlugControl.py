@@ -8,5 +8,5 @@ class SmartThingsPlugControl(SmartThingsControl, PlugControl):
     """
 
     # Toggle coordinates
-    x = 626.4
-    y = 273.6
+    x = 961
+    y = 436
