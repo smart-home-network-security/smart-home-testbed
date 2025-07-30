@@ -8,5 +8,5 @@ class TapoPlug(TapoPlugState, TapoPlugControl):
     """
     
     # Screen coordinates for device controls
-    device_x = 532.8
-    device_y = 446.4
+    device_x = 281
+    device_y = 654

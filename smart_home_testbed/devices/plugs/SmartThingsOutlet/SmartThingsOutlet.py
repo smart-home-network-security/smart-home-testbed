@@ -1,4 +1,5 @@
 from typing import Awaitable
+from pysmartthings import Capability, Attribute
 from ....DeviceState import SmartThingsState
 from ....DeviceControl import SmartThingsPlugControl
 
@@ -10,8 +11,16 @@ class SmartThingsOutlet(SmartThingsState, SmartThingsPlugControl):
 
     ## Class attributes
     # Screen to open the device controls from the "Devices" tab
-    device_x = 187.2
-    device_y = 532.8
+    device_x = 281
+    device_y = 1139
+    # Toggle coordinates from the device controls screen
+    x = 454
+    y = 1018
+    # States boolean values
+    states = {
+        "on":  True,
+        "off": False
+    }
 
 
     async def _async_get_state(self) -> Awaitable[bool]:
@@ -21,5 +30,6 @@ class SmartThingsOutlet(SmartThingsState, SmartThingsPlugControl):
         Returns:
             Awaitable[bool]: async function which returns True if the plug is on, False otherwise.
         """
-        state = await super()._async_get_state()
-        return state.switch
+        status = await super()._async_get_state()
+        state = status["main"][Capability.SWITCH][Attribute.SWITCH].value
+        return SmartThingsOutlet.states[state]

@@ -9,8 +9,8 @@ class TuyaPlug(ScreenshotState, TuyaControl, PlugControl):
 
     ## Screen coordinates
     # Device controls screen coordinates
-    device_x = 345.6
-    device_y = 360
+    device_x = 281
+    device_y = 582
     # Toggle coordinates
-    x = 360
-    y = 561.6
+    x = 540
+    y = 1042

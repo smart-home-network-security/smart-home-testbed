@@ -1,3 +1,4 @@
+from copy import deepcopy
 from ppadb.device import Device as AdbDevice
 from ppadb.client import Client as AdbClient
 import cv2
@@ -11,6 +12,9 @@ class DeviceControl:
 
     ADB_SERVER_IP   = "127.0.0.1"
     ADB_SERVER_PORT = 5037
+    adb_client = AdbClient(
+        host=ADB_SERVER_IP,
+        port=ADB_SERVER_PORT)
 
 
     def get_phone(self) -> AdbDevice:
@@ -22,9 +26,9 @@ class DeviceControl:
         Raises:
             IndexError: If no adb device is found.
         """
-        adb = AdbClient(host=DeviceControl.ADB_SERVER_IP, port=DeviceControl.ADB_SERVER_PORT)
-        return adb.devices()[0]
-    
+        phone = deepcopy(DeviceControl.adb_client.devices()[0])
+        return phone
+
 
     def start_app(self) -> None:
         """
@@ -35,6 +39,7 @@ class DeviceControl:
         """
         phone = self.get_phone()
         phone.shell(f"monkey -p {self.android_package} -c android.intent.category.LAUNCHER 1")
+        del phone
 
 
     def close_app(self) -> None:
@@ -46,6 +51,7 @@ class DeviceControl:
         """
         phone = self.get_phone()
         phone.shell(f"am force-stop {self.android_package}")
+        del phone
 
     
     def screenshot(self) -> np.ndarray:
@@ -57,6 +63,9 @@ class DeviceControl:
         Raises:
             IndexError: If no adb device is found.
         """
-        screenshot_bytes = self.get_phone().screencap()
+        phone = self.get_phone()
+        screenshot_bytes = phone.screencap()
         screenshot_array = np.frombuffer(screenshot_bytes, dtype=np.uint8)
-        return cv2.imdecode(screenshot_array, cv2.IMREAD_UNCHANGED)
+        image = cv2.imdecode(screenshot_array, cv2.IMREAD_UNCHANGED)
+        del phone
+        return image

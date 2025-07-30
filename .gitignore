@@ -4,6 +4,7 @@
 
 # Cache folders
 __pycache__
+.pytest_cache
 
 # Build folders
 build

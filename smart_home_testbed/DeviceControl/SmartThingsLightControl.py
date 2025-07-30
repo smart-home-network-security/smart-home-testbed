@@ -9,12 +9,12 @@ class SmartThingsLightControl(SmartThingsControl, LightControl):
 
     ## Screen event coordinates
     # Toggle
-    x = 626.4
-    y = 273.6
+    x = 961
+    y = 436
     # Brightness and color gauges
-    x_left_gauge = 21
-    x_right_gauge = 692
+    x_left_gauge  = 100
+    x_right_gauge = 1000
     # Brightness
-    y_brightness = 504
+    y_brightness = 751
     # Color
-    y_color = 1036.8
+    y_color = 1479

@@ -1,10 +1,9 @@
 from typing import Any, Awaitable
-import asyncio
-from tapo import ApiClient
-from .DeviceState import DeviceState
+from tapo import ApiClient, GenericDeviceHandler
+from .AsyncDeviceState import AsyncDeviceState
 
 
-class TapoState(DeviceState):
+class TapoState(AsyncDeviceState):
     """
     Class to represent the state of a generic Tapo device.
     """
@@ -19,13 +18,17 @@ class TapoState(DeviceState):
         Args:
             ipv4 (str): The Tapo device's IPv4 address.
             kwargs (dict): device-specific additional parameters,
-                           including user's credentials.
+                           including the TP-Link account credentials.
         """
-        self.ipv4 = ipv4
+        # Superclass constructor
+        super().__init__(ipv4)
+
+        # Tapo device connector
         self.client = ApiClient(
             kwargs.get("username", ""),
             kwargs.get("password", "")
         )
+        self.device: GenericDeviceHandler = None
     
 
     async def _async_get_state(self) -> Awaitable[Any]:
@@ -35,16 +38,17 @@ class TapoState(DeviceState):
         Returns:
             Awaitable[Any]: async function which returns the Tapo device's status.
         """
-        dev = await self.client.generic_device(self.ipv4)
-        info = await dev.get_device_info()
+        if self.device is None:
+            self.device = await self.client.generic_device(self.ipv4)
+
+        info = await self.device.get_device_info()
         return info
     
 
-    def get_state(self) -> Any:
+    async def _async_close(self) -> None:
         """
-        Get the state of the Tapo device.
-
-        Returns:
-            Any: Tapo device status
+        Asynchronously close the connection to the Tapo device.
+        Simply sets the device and client to None.
         """
-        return asyncio.run(self._async_get_state())
+        self.device = None
+        self.client = None

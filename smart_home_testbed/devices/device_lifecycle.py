@@ -18,3 +18,17 @@ def init_device(name: str, ipv4: str, **kwargs) -> Any:
     package = importlib.import_module(package_name)
     cls = getattr(package, name)
     return cls(ipv4, **kwargs)
+
+
+def close_device(device: Any) -> None:
+    """
+    Close the device connector.
+
+    Args:
+        device (Any): The device object.
+    """
+    try:
+        device.close()
+    except AttributeError:
+        # If the device does not have a stop method, we can ignore it
+        pass

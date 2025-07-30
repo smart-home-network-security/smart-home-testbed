@@ -10,5 +10,5 @@ class TapoPlugSmartThings(TapoPlugState, SmartThingsPlugControl):
 
     ## Class attributes
     # Screen coordinates to open the device controls
-    device_x = 187.2
-    device_y = 792
+    device_x = 799
+    device_y = 800

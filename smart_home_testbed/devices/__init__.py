@@ -24,4 +24,4 @@ from .cameras import (
     DLinkCamera
 )
 
-from .init_device import init_device
+from .device_lifecycle import init_device, close_device
