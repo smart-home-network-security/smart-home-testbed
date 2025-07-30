@@ -1,15 +1,15 @@
 # Generic
-pure-python-adb  # adb client
-asyncio          # asynchronous functions
+pure-python-adb==0.3.0.dev0  # adb client
+asyncio==3.4.3               # asynchronous functions
 
 # Screenshot-based
-opencv-python
-scikit-image
+opencv-python==4.12.0.88
+scikit-image==0.52.2
 
 # Specific devices' APIs
-python-kasa      # TP-Link Kasa plug (HS110)
-tapo             # Tapo plug (P110) & light (L530E)
-pytapo           # Tapo camera (C200)
-aiohue           # Philips Hue bridge
-python-miio      # Xiaomi Mi Home camera (chuangmi.camera.ipc019)
-pysmartthings    # SmartThings API (cloud)
+python-kasa==0.10.2   # TP-Link Kasa plug (HS110)
+tapo==0.8.3           # Tapo plug (P110) & light (L530E)
+pytapo==3.3.49        # Tapo camera (C200)
+aiohue==4.7.4         # Philips Hue bridge
+python-miio==0.5.12   # Xiaomi Mi Home camera (chuangmi.camera.ipc019)
+pysmartthings==3.2.8  # SmartThings API (cloud)

@@ -1,18 +1,18 @@
 from typing import List, Any, Awaitable
 import asyncio
 import aiohttp
-from pysmartthings import SmartThings, DeviceEntity
-from .DeviceState import DeviceState
+from pysmartthings import SmartThings, Device
+from .AsyncDeviceState import AsyncDeviceState
 
 
-class SmartThingsState(DeviceState):
+class SmartThingsState(AsyncDeviceState):
     """
     Abstract class which represents a generic SmartThings device's state.
     """
 
 
     @staticmethod
-    async def _get_all_devices(token: str) -> Awaitable[List[DeviceEntity]]:
+    async def _get_all_devices(token: str) -> Awaitable[List[Device]]:
         """
         Asynchronously get all the devices connected to SmartThings.
 
@@ -23,12 +23,12 @@ class SmartThingsState(DeviceState):
         """
         async with aiohttp.ClientSession() as session:
             api = SmartThings(session, token)
-            devices = await api.devices()
+            devices = await api.get_devices()
             return devices
         
     
     @classmethod
-    def get_all_devices(cls) -> List[DeviceEntity]:
+    def get_all_devices(cls) -> List[Device]:
         """
         Get all the devices connected to SmartThings.
 
@@ -47,6 +47,24 @@ class SmartThingsState(DeviceState):
             print(device.label, device.name, device.device_id)
 
     
+    def __init__(self, ipv4: str, **kwargs) -> None:
+        """
+        Constructor.
+
+        Args:
+            ipv4 (str): IPv4 address of the SmartThings device.
+            kwargs (dict): device-specific additional parameters,
+                           including SmartThings API token.
+        """
+        # Superclass constructor
+        super().__init__(ipv4)
+
+        # SmartThings instance
+        self.token = kwargs.get("token", "")
+        self.http_session: aiohttp.ClientSession = None
+        self.smartthings: SmartThings = None
+
+    
     async def _async_get_state(self) -> Awaitable[Any]:
         """
         Asynchronously get the SmartThings device status.
@@ -54,19 +72,20 @@ class SmartThingsState(DeviceState):
         Returns:
             Awaitable[Any]: async function which returns the device status.
         """
-        async with aiohttp.ClientSession() as session:
-            api = SmartThings(session, self.token)
-            devices = await api.devices(device_ids=[self.id])
-            device = devices[0]
-            await device.status.refresh()
-            return device.status
+        if self.http_session is None and self.smartthings is None:
+            self.http_session = aiohttp.ClientSession()
+            self.smartthings = SmartThings(session=self.http_session)
+            self.smartthings.authenticate(self.token)
+        
+        status = await self.smartthings.get_device_status(self.id)
+        return status
     
 
-    def get_state(self) -> Any:
+    async def _async_close(self) -> None:
         """
-        Get the device status.
-
-        Returns:
-            Any: device status
+        Asynchronously close the SmartThings session.
         """
-        return asyncio.run(self._async_get_state())
+        if self.http_session is not None:
+            await self.http_session.close()
+            self.http_session = None
+            self.smartthings  = None
