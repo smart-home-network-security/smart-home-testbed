@@ -8,7 +8,7 @@ class TapoPlugState(TapoState):
     Class to represent the state of a Tapo plug.
     """
 
-    def __init__(self, ipv4):
+    def __init__(self, ipv4: str, **kwargs) -> None:
         """
         Constructor.
         Initializes the Tapo device with its IP address,
@@ -16,6 +16,8 @@ class TapoPlugState(TapoState):
 
         Args:
             ipv4 (str): The Tapo device's IPv4 address.
+            kwargs (dict): device-specific additional parameters,
+                           including the TP-Link account credentials.
         """
         # Superclass (TapoState) constructor
         super().__init__(ipv4)

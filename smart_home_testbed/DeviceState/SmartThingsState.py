@@ -60,6 +60,7 @@ class SmartThingsState(AsyncDeviceState):
         super().__init__(ipv4)
 
         # SmartThings instance
+        self.id = kwargs.get("id", "")
         self.token = kwargs.get("token", "")
         self.http_session: aiohttp.ClientSession = None
         self.smartthings: SmartThings = None

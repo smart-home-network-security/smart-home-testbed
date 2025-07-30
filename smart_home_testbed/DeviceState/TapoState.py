@@ -18,7 +18,7 @@ class TapoState(AsyncDeviceState):
         Args:
             ipv4 (str): The Tapo device's IPv4 address.
             kwargs (dict): device-specific additional parameters,
-                           including user's credentials.
+                           including the TP-Link account credentials.
         """
         # Superclass constructor
         super().__init__(ipv4)
