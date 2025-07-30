@@ -9,5 +9,5 @@ class TpLinkPlugTapo(TpLinkPlugState, TapoPlugControl):
     """
     
     # Screen coordinates for device controls
-    device_x = 532.8
-    device_y = 705.6
+    device_x = 799
+    device_y = 654

@@ -16,22 +16,22 @@ class HueLightEssentials(HueState, LightControl):
     android_package = "com.superthomaslab.hueessentials"
     ## Screen coordinates
     # Zone button
-    x_zone = 360
-    y_zone = 374.4
+    x_zone = 540
+    y_zone = 582
     # Lamp button
-    x_lamp = 360
-    y_lamp = 475.2
+    x_lamp = 896
+    y_lamp = 2036
     # Toggle button
-    x = 626.4
-    y = 446.4
+    x = 950
+    y = 679
     # Brightness
-    x_left_gauge = 67
-    x_right_gauge = 676
-    y_brightness = 230.4
+    x_left_gauge = 100
+    x_right_gauge = 1000
+    y_brightness = 388
     # Color
-    x_color_center = 360
-    y_color_center = 792
-    y_color_top    = 472
+    x_color_center = 540
+    y_color_center = 1382
+    y_color_top    = 900
 
 
     def start_app(self, open_lamp_control: bool = False) -> None:

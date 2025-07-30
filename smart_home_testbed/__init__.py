@@ -1,6 +1,7 @@
 # Expose only concrete devices
 from .devices import (
     init_device,
+    close_device,
 
     # Plugs
     TpLinkPlug,

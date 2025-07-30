@@ -11,5 +11,5 @@ class TpLinkPlug(TpLinkPlugState, PlugControl):
     # Android package name
     android_package = "com.tplink.kasa_android"
     # Toggle coordinates
-    x = 620
-    y = 455
+    x = 950
+    y = 654

@@ -13,11 +13,11 @@ class HueLight(HueState, LightControl):
     android_package = "com.philips.lighting.hue2"
     ## Screen coordinates
     # Zone button
-    x_zone = 360
-    y_zone = 446.4
+    x_zone = 540
+    y_zone = 679
     # Toggle button
-    x = 136.8
-    y = 1022.4
+    x = 162
+    y = 1430
 
 
     def start_app(self) -> None:

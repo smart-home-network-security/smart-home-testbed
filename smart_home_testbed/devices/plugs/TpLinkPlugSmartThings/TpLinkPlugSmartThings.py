@@ -10,5 +10,5 @@ class TpLinkPlugSmartThings(TpLinkPlugState, SmartThingsPlugControl):
 
     ## Class attributes
     # Screen to open the device controls
-    device_x = 532.8
-    device_y = 532.8
+    device_x = 281
+    device_y = 800

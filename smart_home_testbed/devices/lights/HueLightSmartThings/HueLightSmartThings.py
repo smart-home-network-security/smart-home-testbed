@@ -10,5 +10,5 @@ class HueLightSmartThings(HueState, SmartThingsLightControl):
 
     ## Class variables
     # Screen coordinates to open the device controls
-    device_x = 187.2
-    device_y = 1051.2
+    device_x = 799
+    device_y = 1139
