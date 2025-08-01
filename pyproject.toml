@@ -5,17 +5,17 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "smart-home-testbed"
-version = "0.1.0"
+version = "0.2.0"
 description = "Various smart home devices' APIs"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {file = "LICENSE"}
 keywords = ["iot", "smart home", "api"]
 authors = [
-  {name = "François De Keersmaeker", email = "francois.dekeersmaeker@uclouvain.be" }
+  {name = "François De Keersmaeker", email = "francois.dekeersmaeker+github@proton.me" }
 ]
 maintainers = [
-  {name = "François De Keersmaeker", email = "francois.dekeersmaeker@uclouvain.be" }
+  {name = "François De Keersmaeker", email = "francois.dekeersmaeker+github@proton.me" }
 ]
 
 # Classifiers help users find your project by categorizing it.
@@ -49,7 +49,7 @@ dependencies = [
   "pure-python-adb==0.3.0.dev0",  # adb client
   "asyncio==3.4.3",               # asynchronous functions
   "opencv-python==4.12.0.88",
-  "scikit-image==0.52.2",
+  "scikit-image==0.25.2",
   "python-kasa==0.10.2",          # TP-Link Kasa plug (HS110)
   "tapo==0.8.3",                  # Tapo plug (P110) & light (L530E)
   "pytapo==3.3.49",               # Tapo camera (C200)
