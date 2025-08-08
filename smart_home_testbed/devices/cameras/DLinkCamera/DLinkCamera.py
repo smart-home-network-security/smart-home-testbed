@@ -1,4 +1,3 @@
-import os
 from ....DeviceState import CameraScreenshotState
 from ....DeviceControl import CameraControl
 

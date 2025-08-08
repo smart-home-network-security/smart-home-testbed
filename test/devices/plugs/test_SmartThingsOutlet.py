@@ -22,6 +22,7 @@ def test_constructor() -> None:
     assert device.id == id
     assert device.token == token
     assert device.android_package == android_package
+    assert device.loop.is_running()
 
 
 def test_init_device() -> None:
@@ -35,3 +36,4 @@ def test_init_device() -> None:
     assert device.id == id
     assert device.token == token
     assert device.android_package == android_package
+    assert device.loop.is_running()
