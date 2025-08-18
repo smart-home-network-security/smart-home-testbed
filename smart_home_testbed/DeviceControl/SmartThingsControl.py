@@ -12,7 +12,7 @@ class SmartThingsControl(DeviceControl):
     android_package = "com.samsung.android.oneconnect"
     # Devices tab button screen coordinates
     devices_x = 335
-    devices_y = 2279
+    devices_y = 2230
 
 
     def start_app(self) -> None:
@@ -31,4 +31,4 @@ class SmartThingsControl(DeviceControl):
         phone.shell(f"input tap {SmartThingsControl.devices_x} {SmartThingsControl.devices_y}")
         time.sleep(5)
         # Open device controls
-        #phone.shell(f"input tap {self.device_x} {self.device_y}")
+        phone.shell(f"input tap {self.device_x} {self.device_y}")
