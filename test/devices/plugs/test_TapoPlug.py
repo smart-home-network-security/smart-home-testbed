@@ -19,6 +19,7 @@ def test_constructor() -> None:
     assert isinstance(device, TapoPlug)
     assert device.ipv4 == ipv4
     assert device.android_package == android_package
+    assert device.loop.is_running()
 
 
 def test_init_device() -> None:
@@ -30,3 +31,4 @@ def test_init_device() -> None:
     assert isinstance(device, TapoPlug)
     assert device.ipv4 == ipv4
     assert device.android_package == android_package
+    assert device.loop.is_running()
