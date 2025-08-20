@@ -20,7 +20,7 @@ class TapoPlugState(TapoState):
                            including the TP-Link account credentials.
         """
         # Superclass (TapoState) constructor
-        super().__init__(ipv4)
+        super().__init__(ipv4, **kwargs)
 
         # Tapo plug connector
         self.device: PlugEnergyMonitoringHandler = None
