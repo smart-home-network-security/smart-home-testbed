@@ -9,20 +9,20 @@ class TapoLight(TapoLightState, TapoControl, LightControl):
 
     ## Class variables
     # Device controls coordinates
-    device_x = 187.2
-    device_y = 705.6
+    device_x = 799
+    device_y = 994
     # Toggle coordinates
-    x = 612
-    y = 619.2
+    x = 940
+    y = 824
     # Brightness and color gauges
-    x_left_gauge = 103
-    x_right_gauge = 640
+    x_left_gauge = 200
+    x_right_gauge = 900
     # Brightness
-    y_brightness = 1108.8
+    y_brightness = 1503
     # Color
-    x_color_tab = 230.4
-    y_color_tab = 1238.4
-    y_color = 1310.4
+    x_color_tab = 302
+    y_color_tab = 1697
+    y_color = 1939
 
 
     def do_set_color(self) -> None:

@@ -12,8 +12,8 @@ class SmartThingsOutlet(SmartThingsState, SmartThingsPlugControl):
     ## Class attributes
     # Screen to open the device controls from the "Devices" tab
     device_x = 281
-    device_y = 1139
-    # Toggle coordinates from the device controls screen
+    device_y = 1115
+    # Toggle coordinates from the "Devices" tab
     x = 454
     y = 1018
     # States boolean values

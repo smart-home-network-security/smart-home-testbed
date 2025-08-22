@@ -10,5 +10,5 @@ class TapoLightSmartThings(TapoLightState, SmartThingsLightControl):
 
     ## Class variables
     # Screen coordinates to open the device controls
-    device_x = 532.8
-    device_y = 1051.2
+    device_x = 799
+    device_y = 1454

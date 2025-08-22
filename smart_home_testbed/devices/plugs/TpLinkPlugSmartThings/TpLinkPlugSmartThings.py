@@ -12,3 +12,6 @@ class TpLinkPlugSmartThings(TpLinkPlugState, SmartThingsPlugControl):
     # Screen to open the device controls
     device_x = 281
     device_y = 776
+    # Toggle coordinates from the "Devices" tab
+    x = 454
+    y = 679
