@@ -37,8 +37,8 @@ class LightControl(DeviceControl):
     def set_brightness(self) -> None:
         """
         Template method to randomly set the brightness of the light.
-        The child class must implement the concrete method `is_on`,
-        which checks if the light is on.
+        The child class must implement the concrete method `is_off`,
+        which checks if the light is off.
         """
         # If light is off, turn it on
         if self.is_off():
@@ -57,8 +57,8 @@ class LightControl(DeviceControl):
     def set_color(self) -> None:
         """
         Template method to randomly set the color of the light.
-        The child class must implement the concrete method `is_on`,
-        which checks if the light is on.
+        The child class must implement the concrete method `is_off`,
+        which checks if the light is off.
         """
         # If light is off, turn it on
         if self.is_off():

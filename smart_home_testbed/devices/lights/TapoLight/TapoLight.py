@@ -1,3 +1,4 @@
+import time
 from ....DeviceState import TapoLightState
 from ....DeviceControl import TapoControl, LightControl
 
@@ -31,4 +32,5 @@ class TapoLight(TapoLightState, TapoControl, LightControl):
         then randomly set the color of the light. 
         """
         self.get_phone().shell(f"input tap {self.x_color_tab} {self.y_color_tab}")
+        time.sleep(2)  # Wait for the color gauge to appear
         self._set_light_attr(self.y_color)
