@@ -2,6 +2,7 @@ from .DeviceControl import DeviceControl
 from .PlugControl import PlugControl
 from .LightControl import LightControl
 from .CameraControl import CameraControl
+from .CameraErrorControl import CameraErrorControl
 from .TapoControl import TapoControl
 from .TapoPlugControl import TapoPlugControl
 from .SmartThingsControl import SmartThingsControl
