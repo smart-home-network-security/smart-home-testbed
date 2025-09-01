@@ -8,7 +8,7 @@ class CameraControl(DeviceControl):
     """
 
     # Stream event duration
-    stream_duration = 7
+    stream_duration = 10
 
 
     def stream(self) -> None:

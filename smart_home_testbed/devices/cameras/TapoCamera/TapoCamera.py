@@ -14,7 +14,7 @@ class TapoCamera(CameraScreenshotState, CameraControl):
     SSIM_DIFF_THRESHOLD = 0.95
     ## Screen coordinates
     # Stream event
-    x_start = 187.2
-    y_start = 446.4
-    x_stop = 50.4
-    y_stop = 100.8
+    x_start = 281
+    y_start = 994
+    x_stop = 65
+    y_stop = 242

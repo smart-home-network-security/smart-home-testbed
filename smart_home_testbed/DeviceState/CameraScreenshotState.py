@@ -26,7 +26,8 @@ class CameraScreenshotState(CameraState):
         super().__init__(ipv4, **kwargs)
 
         # Compute gray array of streaming screenshot
-        stream_image = cv2.imread(kwargs.get("path_screenshot_stream", CameraScreenshotState.FILENAME_SCREENSHOT_STREAM))
+        path_screenshot_stream = kwargs.get("path_screenshot_stream", CameraScreenshotState.FILENAME_SCREENSHOT_STREAM)
+        stream_image = cv2.imread(path_screenshot_stream)
         self.gray_stream_image = cv2.cvtColor(stream_image, cv2.COLOR_BGR2GRAY)
 
 

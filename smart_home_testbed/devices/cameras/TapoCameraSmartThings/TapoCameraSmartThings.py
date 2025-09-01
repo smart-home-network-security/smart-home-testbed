@@ -14,14 +14,14 @@ class TapoCameraSmartThings(CameraScreenshotState, CameraControl, SmartThingsCon
     SSIM_DIFF_THRESHOLD = 0.975
     ## Screen coordinates
     # Device controls button
-    device_x = 532.8
-    device_y = 792
+    device_x = 281
+    device_y = 1454
     # Expand stream
-    x_expand = 525.6
-    y_expand = 561.6
+    x_expand = 864
+    y_expand = 873
     # Toggle stream
-    x_start = 720
-    y_start = 360
+    x_start = 540
+    y_start = 1285
 
 
     def start_app(self) -> None:

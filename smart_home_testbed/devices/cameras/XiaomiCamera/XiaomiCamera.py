@@ -13,14 +13,14 @@ class XiaomiCamera(CameraControl, ChuangmiCamera):
     android_package = "com.xiaomi.smarthome"
     ## Screen coordinates
     # Zone button
-    x_zone = 345.6
-    y_zone = 201.6
+    x_zone = 475
+    y_zone = 364
     # Camera control button
-    x_camera = 619.2
-    y_camera = 331.2
+    x_camera = 950
+    y_camera = 509
     # Stream event
-    x_start = 100.8
-    y_start = 489.6
+    x_start = 130
+    y_start = 800
 
 
     def __init__(self, ipv4: str, **kwargs) -> None:

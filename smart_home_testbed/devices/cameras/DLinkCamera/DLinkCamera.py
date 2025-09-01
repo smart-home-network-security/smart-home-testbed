@@ -14,13 +14,13 @@ class DLinkCamera(CameraScreenshotState, CameraControl):
     SSIM_DIFF_THRESHOLD = 0.9
     ## Screen coordinates
     # Stream event
-    x_start = 424.8
-    y_start = 907.2
-    x_stop = 57.6
-    y_stop = 1008
+    x_start = 637
+    y_start = 1479
+    x_stop = 76
+    y_stop = 1648
     # Error message
-    x_error = 360
-    y_error = 806.4
+    x_error = 540
+    y_error = 1333
 
 
     def start_stream(self) -> None:

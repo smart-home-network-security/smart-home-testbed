@@ -49,7 +49,7 @@ class TuyaLight(ScreenshotState, TuyaControl, LightControl):
         # Call parent constructor
         super().__init__(ipv4, **kwargs)
 
-        # Compute gray array of streaming screenshot
+        # Compute gray array of off screenshot
         image_off = cv2.imread(kwargs.get("path_screenshot_off", TuyaLight.FILENAME_SCREENSHOT_OFF))
         self.image_off_gray = cv2.cvtColor(image_off, cv2.COLOR_BGR2GRAY)
     
