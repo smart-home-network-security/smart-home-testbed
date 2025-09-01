@@ -1,8 +1,8 @@
 from ....DeviceState import CameraScreenshotState
-from ....DeviceControl import CameraControl
+from ....DeviceControl import CameraErrorControl
 
 
-class DLinkCamera(CameraScreenshotState, CameraControl):
+class DLinkCamera(CameraScreenshotState, CameraErrorControl):
     """
     DLink camera (DCS-8000LH).
     """
@@ -21,14 +21,3 @@ class DLinkCamera(CameraScreenshotState, CameraControl):
     # Error message
     x_error = 540
     y_error = 1333
-
-
-    def start_stream(self) -> None:
-        """
-        Dismiss the potential error message,
-        then start the camera's video stream.
-        Overwrites the method from the parent class CameraControl.
-        """
-        phone = self.get_phone()
-        phone.shell(f"input tap {self.x_error} {self.y_error}")
-        phone.shell(f"input tap {self.x_start} {self.y_start}")

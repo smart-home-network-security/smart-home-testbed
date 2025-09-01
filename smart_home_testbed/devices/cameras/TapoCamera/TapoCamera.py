@@ -1,8 +1,8 @@
 from ....DeviceState import CameraScreenshotState
-from ....DeviceControl import CameraControl
+from ....DeviceControl import CameraErrorControl
 
 
-class TapoCamera(CameraScreenshotState, CameraControl):
+class TapoCamera(CameraScreenshotState, CameraErrorControl):
     """
     Tapo camera (C200).
     """
@@ -18,3 +18,6 @@ class TapoCamera(CameraScreenshotState, CameraControl):
     y_start = 994
     x_stop = 65
     y_stop = 242
+    # Error message
+    x_error = 540
+    y_error = 2231
