@@ -11,16 +11,15 @@ class XiaomiCamera(CameraScreenshotState, CameraControl):
     ### Class variables
     # Android package name
     android_package = "com.xiaomi.smarthome"
+    # SSIM threshold below which images are considered different
+    SSIM_DIFF_THRESHOLD = 0.9
     ## Screen coordinates
     # Zone button
     x_zone = 475
     y_zone = 364
-    # Camera control button
-    x_camera = 950
-    y_camera = 509
     # Stream event
-    x_start = 130
-    y_start = 800
+    x_start = 950
+    y_start = 509
     x_stop  = 86
     y_stop  = 218
     

@@ -9,6 +9,9 @@ class CameraScreenshotState(CameraState):
     which uses screenshot-based event validation.
     """
 
+    # SSIM threshold below which images are considered different
+    SSIM_DIFF_THRESHOLD = 0.9
+    # Default file name for streaming screenshot
     FILENAME_SCREENSHOT_STREAM = "stream.png"
 
 
