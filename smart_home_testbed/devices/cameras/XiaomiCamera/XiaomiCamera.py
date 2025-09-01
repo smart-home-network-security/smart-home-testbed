@@ -1,9 +1,9 @@
 import time
-from miio import ChuangmiCamera
+from ....DeviceState import CameraScreenshotState
 from ....DeviceControl import CameraControl
 
 
-class XiaomiCamera(CameraControl, ChuangmiCamera):
+class XiaomiCamera(CameraScreenshotState, CameraControl):
     """
     Xiaomi camera (Chuangmi IPC019).
     """
@@ -21,19 +21,8 @@ class XiaomiCamera(CameraControl, ChuangmiCamera):
     # Stream event
     x_start = 130
     y_start = 800
-
-
-    def __init__(self, ipv4: str, **kwargs) -> None:
-        """
-        Constructor.
-        Initialize the Xiaomi camera (Chuangmi IPC019) with its IP address.
-
-        Args:
-            ipv4 (str): The device's IPv4 address.
-            kwargs (dict): device-specific additional parameters, including device API token.
-        """
-        ChuangmiCamera.__init__(self, ip=ipv4, token=kwargs.get("token", ""))
-        self._was_last_stream_successful = False
+    x_stop  = 86
+    y_stop  = 218
     
 
     def start_app(self) -> None:
@@ -51,32 +40,3 @@ class XiaomiCamera(CameraControl, ChuangmiCamera):
         time.sleep(10)
         # Switch to the camera control screen
         phone.shell(f"input tap {self.x_zone} {self.y_zone}")
-        phone.shell(f"input tap {self.x_camera} {self.y_camera}")
-
-
-    def start_stream(self) -> None:
-        """
-        Start the camera's video stream.
-        Overrides the method from the `CameraControl` class.
-        """
-        phone = self.get_phone()
-        phone.shell(f"input tap {self.x_start} {self.y_start}")
-        phone.shell(f"input tap {self.x_start} {self.y_start}")
-    
-
-    def do_stop_stream(self) -> None:
-        """
-        Stop the camera's video stream.
-        Overrides the method from the `CameraControl` class.
-        """
-        self.start_stream()
-    
-
-    def get_state(self) -> bool:
-        """
-        Get the state of the camera.
-
-        Returns:
-            bool: True if the camera is on, False otherwise.
-        """
-        return self.status().power
